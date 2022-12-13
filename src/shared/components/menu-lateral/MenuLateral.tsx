@@ -1,8 +1,8 @@
-import { Avatar, Divider, Drawer, Icon, List, ListItemButton, ListItemIcon, ListItemText, useMediaQuery, useTheme } from "@mui/material";
+import { Avatar, Divider, Drawer, Icon, List, ListItemButton, ListItemIcon, ListItemText, Switch, useMediaQuery, useTheme } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import { useMatch, useNavigate, useResolvedPath } from "react-router-dom";
-import { useDrawerContext } from "../../contexts";
+import { useAppThemeContext, useDrawerContext } from "../../contexts";
 
 type Props = {
   children: React.ReactNode
@@ -43,6 +43,7 @@ export const MenuLateral: React.FC<Props> = ({ children }) => {
   const smDown = useMediaQuery(theme.breakpoints.down("sm"));
 
   const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext();
+  const { themeName, toggleTheme } = useAppThemeContext();
 
   return (
     <>
@@ -69,6 +70,26 @@ export const MenuLateral: React.FC<Props> = ({ children }) => {
                 />
               ))}
             </List>
+          </Box>
+
+          <Box display="flex" justifyContent="center" alignItems="center" paddingBottom={1}>
+            <Icon>
+              dark_mode
+            </Icon>
+
+            <Switch
+              checked={(themeName === "light" ? true : false)}
+              onChange={toggleTheme}
+              color="primary"
+              value="dynamic-class-name"
+            />
+
+            <Icon
+              color="primary"
+            >
+              light_mode
+            </Icon>
+
           </Box>
 
         </Box>
