@@ -1,4 +1,5 @@
-import { Box, Button, Divider, Icon, Paper, Skeleton, useTheme } from "@mui/material";
+import { Box, Button, Divider, Icon, Paper, Skeleton, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Theme } from "@mui/system";
 
 interface IFerramentasDeDetalheProps {
   newButtonText?: string;
@@ -30,13 +31,13 @@ export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProps> = ({
   showBackButton = true,
   showDeleteButton = true,
   showSaveButton = true,
-  showSaveAndCloseButton = false,
+  showSaveAndCloseButton: showSaveAndBackButton = false,
 
   showNewButtonLoading = false,
   showBackButtonLoading = false,
   showDeleteButtonLoading = false,
   showSaveButtonLoading = false,
-  showSaveAndCloseButtonLoading = false,
+  showSaveAndCloseButtonLoading: showSaveAndBackButtonLoading = false,
 
   onClickNewButton,
   onClickBackButton,
@@ -44,6 +45,9 @@ export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProps> = ({
   onClickSaveButton,
   onClickSaveAndCloseButton,
 }) => {
+  const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
+  const mdDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
+
   const theme = useTheme();
 
   return (
@@ -59,44 +63,50 @@ export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProps> = ({
     >
       {(showSaveButton && !showSaveButtonLoading) && (
         <Button
-          color="primary"
+          color="secondary"
           variant="contained"
           disableElevation
           onClick={onClickSaveButton}
           startIcon={<Icon>save</Icon>}
         >
-          Salvar
+          <Typography variant="button" noWrap >
+            Salvar
+          </Typography>
         </Button>
       )}
       {showSaveButtonLoading && (
         <Skeleton width={110} height={60} />
 
       )}
-      {(showSaveAndCloseButton && !showSaveAndCloseButtonLoading) && (
+      {(showSaveAndBackButton && !showSaveAndBackButtonLoading && !smDown && !mdDown) && (
         <Button
-          color="primary"
+          color="secondary"
           variant="outlined"
           disableElevation
           onClick={onClickSaveAndCloseButton}
           startIcon={<Icon>save</Icon>}
         >
-          Salvar e voltar
+          <Typography variant="button" noWrap >
+            Salvar e voltar
+          </Typography>
         </Button>
       )}
-      {showSaveAndCloseButtonLoading && (
+      {(showSaveAndBackButtonLoading && !smDown && !mdDown) && (
         <Skeleton width={180} height={60} />
 
       )}
 
       {(showDeleteButton && !showDeleteButtonLoading) && (
         <Button
-          color="primary"
+          color="secondary"
           variant="outlined"
           disableElevation
           onClick={onClickDeleteButton}
           startIcon={<Icon>delete</Icon>}
         >
-          Apagar
+          <Typography variant="button" noWrap >
+            Apagar
+          </Typography>
         </Button>
       )}
       {showDeleteButtonLoading && (
@@ -104,38 +114,46 @@ export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProps> = ({
 
       )}
 
-      {(showNewButton && !showNewButtonLoading) && (
+      {(showNewButton && !showNewButtonLoading && !smDown) && (
         <Button
-          color="primary"
+          color="secondary"
           variant="outlined"
           disableElevation
           onClick={onClickNewButton}
           startIcon={<Icon>add</Icon>}
         >
-          {newButtonText}
+          <Typography variant="button" noWrap >
+            {newButtonText}
+          </Typography>
         </Button>
       )}
-      {showNewButtonLoading && (
+      {(showNewButtonLoading && !smDown) && (
         <Skeleton width={110} height={60} />
 
       )}
 
-      <Divider variant="middle" orientation="vertical" />
+      { (
+        showBackButton && (showNewButton || showDeleteButton || showSaveButton || showSaveAndBackButton)
+      ) && (
+        <Divider variant="middle" orientation="vertical" />
+      )}
 
       {(showBackButton && !showBackButtonLoading) && (
         <Button
-          color="primary"
+          color="secondary"
           variant="outlined"
           disableElevation
           onClick={onClickBackButton}
           startIcon={<Icon>arrow_back</Icon>}
         >
-          Voltar
+          <Typography variant="button" noWrap >
+            Voltar
+          </Typography>
         </Button>)}
       {showBackButtonLoading && (
         <Skeleton width={110} height={60} />
 
-      )}
+      )} 
     </Box>
   );
 };

@@ -48,7 +48,7 @@ export const FerramentasDaListagem: React.FC<IFerramentasDaListagemProps> = ({
       <Box flex={1} display="flex" justifyContent="end">
         {showNewButton && (
           <Button
-            color="primary"
+            color="secondary"
             variant="contained"
             disableElevation
             onClick={onClickNewButton}

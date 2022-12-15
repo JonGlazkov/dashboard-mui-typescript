@@ -7,7 +7,13 @@ export const Dashboard = () => {
     <LayoutBaseDePagina
       title="Página Inicial"
       toolBar={(
-        <FerramentasDeDetalhe showSaveAndCloseButton showSaveAndCloseButtonLoading />
+        <FerramentasDeDetalhe
+          showSaveAndCloseButton
+          showNewButton
+          showSaveAndCloseButtonLoading
+          showNewButtonLoading  
+          showBackButton={false}
+        />
       )}
     >
       Testando
