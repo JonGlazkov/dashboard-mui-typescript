@@ -18,6 +18,32 @@ export const Environment = {
   LISTAGEM_VAZIA: "Nenhum registro encontrado.",
 
   /**
+   * Erro ao não ter nenhum registro.
+   */
+  NENHUM_REGISTRO: "Erro ao listar os registros",
+
+  /**
+   * Erro ao consultar o registro.
+   */
+  NENHUM_DADO: "Erro ao consultar os registros",
+
+  /**
+   * Erro ao criar o registro.
+   */
+  CRIAR_USUARIO: "Erro ao criar o registro",
+  
+  /**
+   * Erro ao atualizar o registro.
+   */
+  ATUALIZAR_USUARIO: "Erro ao criar o registro",
+  
+  /**
+   * Erro ao deletar o registro.
+   */
+  DELETAR_USUARIO: "Erro ao deletar o registro",
+
+
+  /**
    * Url base de consultação dos dados dessa aplicação
    */
   URL_BASE: "http://localhost:3333",

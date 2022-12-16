@@ -33,12 +33,13 @@ export const FerramentasDaListagem: React.FC<IFerramentasDaListagemProps> = ({
       component={Paper}
     >
       {showSearchInput && (
-        <Box display="flex" alignItems="center">
-          <InputAdornment position="start">
+        <Box display="flex" alignItems="center" color="secondary">
+          <InputAdornment position="start" >
             <Icon>search</Icon>
           </InputAdornment>
 
           <TextField
+            color="secondary"
             size="small"
             value={searchText}
             label={Environment.INPUT_DE_BUSCA}
