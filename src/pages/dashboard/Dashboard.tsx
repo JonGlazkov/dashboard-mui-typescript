@@ -9,10 +9,6 @@ export const Dashboard = () => {
       toolBar={(
         <FerramentasDeDetalhe
           showSaveAndCloseButton
-          showNewButton
-          showSaveAndCloseButtonLoading
-          showNewButtonLoading  
-          showBackButton={false}
         />
       )}
     >
