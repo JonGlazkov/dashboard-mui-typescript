@@ -2,8 +2,15 @@
   "pessoas": [
     {
       "id": 1,
-      "nome": "Jonathan",
-      "sobrenome": "Ventura"
+      "email": "jonathan_vmacedo@hotmail.com",
+      "cidadeId": 1,
+      "nomeCompleto": "Jonathan Ventura"
+    },
+    {
+      "id": 2,
+      "email": "joao_doido@gmail.com",
+      "cidadeId": 2,
+      "nomeCompleto": "Joao Mesquita"
     }
   ]
 }

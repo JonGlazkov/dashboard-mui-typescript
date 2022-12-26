@@ -2,30 +2,30 @@ import { Environment } from "../../../environment";
 import { api } from "../axios-config";
 
 interface IDetalhePessoa {
-  id: number
-  nomeCompleto: string
-  email: string
+  id: number,
+  nomeCompleto: string,
+  email: string,
   cidadeId: number
 }
 
 interface IListagemPessoa {
-  id: number
-  nomeCompleto: string
-  email: string
+  id: number,
+  nomeCompleto: string,
+  email: string,
   cidadeId: number
 }
 
 type TPessoasComTotalCount = {
-  data: IListagemPessoa[]
+  data: IListagemPessoa[],
   totalCount: number
 }
 
 const getAll = async (
   page = 1,
-  filter: ""
+  filter = "" 
 ): Promise<TPessoasComTotalCount | Error> => {
   try {
-    const urlRelativa = `/pessoas?_page=${page}&_limit=${Environment.LIMITE_DE_LINHAS}&nomeCompleto_like${filter}`;
+    const urlRelativa = `/pessoas?_page=${page}&_limit=${Environment.LIMITE_DE_LINHAS}&nomeCompleto_like=${filter}`;
 
     const { data, headers } = await api.get(urlRelativa);
 
